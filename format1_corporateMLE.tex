@@ -1,0 +1,344 @@
+%-------------------------
+% Resume in LaTeX
+% Author
+% License: MIT
+%------------------------
+%---- Required Packages and Functions ----
+\documentclass[a4paper,10pt]{article}
+\usepackage{latexsym}
+\usepackage[dvipsnames]{xcolor}   % FIX: added dvipsnames to support RoyalBlue etc.
+\usepackage{float}
+
+\usepackage{ragged2e}
+\usepackage[empty]{fullpage}
+\usepackage{wrapfig}
+\usepackage{lipsum}
+\usepackage{tabularx}
+\usepackage{titlesec}
+\usepackage{geometry}
+\usepackage{marvosym}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage{fontawesome5}
+\usepackage{multicol}
+\usepackage{graphicx}
+\usepackage{cfr-lm}
+\usepackage[T1]{fontenc}
+\setlength{\multicolsep}{0pt} 
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\geometry{left=0.75cm, top=0.2cm, right=0.55cm, bottom=1cm}
+\setlength{\footskip}{4pt}        % FIX: footskip too small warning
+\usepackage[most]{tcolorbox}
+\tcbset{
+	frame code={}
+	center title,
+	left=0pt,
+	right=0pt,
+	top=0pt,
+	bottom=0pt,
+	colback=gray!20,
+	colframe=white,
+	width=\dimexpr\textwidth\relax,
+	enlarge left by=-2mm,
+	boxsep=4pt,
+	arc=0pt,outer arc=0pt,
+}
+
+\urlstyle{same}
+
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-7pt}]
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[2]{
+  \item{
+    \textbf{#1}{\hspace{0.5mm}#2 \vspace{-0.5mm}}
+  }
+}
+
+\newcommand{\resumePOR}[3]{
+\vspace{0.5mm}\item
+    \begin{tabular*}{0.98\textwidth}[t]{l@{\extracolsep{\fill}}r}
+        \textbf{#1}\hspace{0.3mm}#2 & \textit{#3} 
+    \end{tabular*}
+    \vspace{-3.3mm}
+}
+
+\newcommand{\resumeSubheading}[4]{
+ \vspace{0.5mm}\item[]
+    \begin{tabular*}{0.98\textwidth}[t]{l@{\extracolsep{\fill}}r}
+        \textbf{#1} & \textit{\footnotesize{#4}} \\
+        \textit{\footnotesize{#3}} &  \footnotesize{#2}\\
+    \end{tabular*}
+    \vspace{-3.4mm}
+}
+
+\newcommand{\resumeProjector}[4]{
+\vspace{0.5mm}\item[]
+    \begin{tabular*}{0.98\textwidth}[t]{l@{\extracolsep{\fill}}r}
+        \textbf{#1} & \textit{\footnotesize{#3}} \\
+         \footnotesize{\textit{#2}} & \footnotesize{#4}
+    \end{tabular*}
+    \vspace{-3mm}
+}
+
+\newcommand{\resumeProject}[3]{ % With vertical bar
+\vspace{0.5mm}\item[]
+    \begin{tabular*}{0.98\textwidth}[t]{l@{\extracolsep{\fill}}r}
+        \textbf{#1} \textbar\ #2 & \textit{#3} \\
+    \end{tabular*}
+    \vspace{-3mm}
+}
+
+\newcommand{\resumePROJECT}[2]{ % With vertical bar
+\vspace{0.5mm}\item[]
+    \begin{tabular*}{0.98\textwidth}[t]{l@{\extracolsep{\fill}}r}
+        \textbf{#1} & \textit{#2} \\
+    \end{tabular*}
+    \vspace{-3mm}
+}
+
+\newcommand{\resumeSubItem}[2]{\resumeItem{#1}{#2}\vspace{-4pt}}
+
+% FIX: nested $ signs cause "Missing $" cascade errors.
+% Replaced with \mathbullet approach using a single math environment.
+\renewcommand{\labelitemi}{\(\vcenter{\hbox{\tiny\(\bullet\)}}\)}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*,labelsep=0mm]}
+\newcommand{\resumeHeadingSkillStart}{\begin{itemize}[leftmargin=*,itemsep=1.7mm, rightmargin=2ex]}
+
+\newcommand{\resumeItemListStart}{\begin{justify}\begin{itemize}[label=\tiny\(\bullet\), leftmargin=2.2ex, rightmargin=2ex, noitemsep,labelsep=1.2mm,itemsep=0mm]\small}
+
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}\vspace{2mm}}
+\newcommand{\resumeHeadingSkillEnd}{\end{itemize}\vspace{-2mm}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\end{justify}\vspace{-2mm}}
+\newcommand{\cvsection}[1]{%
+\vspace{2mm}
+\begin{tcolorbox}
+    \textbf{\large #1}
+\end{tcolorbox}
+    \vspace{-4mm}
+}
+
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}%
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}%
+\newcolumntype{C}{>{\centering\arraybackslash}X}%
+%---- End of Packages and Functions ------
+
+%-------------------------------------------
+\newcommand{\name}{Muhammad Hamza}
+\newcommand{\course}{Dual Degree (B.Tech \& M.Tech) in Chemical Engineering}
+\newcommand{\microspl}{Micro Spl. in Artificial Intelligence and Applications}
+\newcommand{\roll}{23CH30019}
+\newcommand{\phone}{9569791233}
+\newcommand{\emaila}{muhammadhamza@kgpian.iitkgp.ac.in}
+\newcommand{\emailb}{hamza.iitkgp@gmail.com}
+
+\begin{document}
+\fontfamily{cmr}\selectfont
+
+% Header
+\parbox{2.35cm}{
+\includegraphics[width=2cm,clip]{IITKGP_logo.jpeg}
+}
+\parbox{\dimexpr\linewidth-2.5cm\relax}{
+\begin{tabularx}{\linewidth}{X >{\raggedleft\arraybackslash}p{6.5cm}} \\ 
+  \textbf{\Large \name} & {\raisebox{0.0\height}{\footnotesize \faPhone}\ +91-\phone}\\
+  {Roll No: \roll} & \href{mailto:\emaila}{\raisebox{0.0\height}{\footnotesize \faEnvelope}\ {\emaila}} \\
+  \course & \href{mailto:\emailb}{\raisebox{0.0\height}{\footnotesize \faEnvelope}\ {\emailb}} \\
+  \microspl & \href{https://github.com/hamza-faarooq}{\raisebox{0.0\height}{\footnotesize \faGithub}\ {GitHub Profile}} \\
+  {Indian Institute of Technology, Kharagpur} & \href{https://www.linkedin.com/in/muhammad-hamza-iftekhar-hamid-784903204/}{\raisebox{0.0\height}{\footnotesize \faLinkedin}\ {LinkedIn Profile}}
+\end{tabularx}
+}
+
+\vspace{-2mm}
+
+%-----------EDUCATION-----------
+\section{\textbf{Education}}
+\resumeSubHeadingListStart
+\resumeSubheading
+{Indian Institute of Technology, Kharagpur}{CGPA: 8.62/10.00}
+{Dual Degree (B.Tech \& M.Tech) in Chemical Engineering --- Micro in AI \& Applications}{2028}
+\resumeSubHeadingListEnd
+
+\vspace{-4mm}
+%-----------WORK EXPERIENCE-----------
+\section{\textbf{Work Experience}}
+\resumeSubHeadingListStart
+\vspace{2pt}
+\resumeProject
+{Research Intern @ University of Manchester $\times$ NASA, Prof. Anirbit Mukherjee}
+{Remote}
+{Nov 2025 -- Present}
+\resumeItemListStart
+\vspace{2pt}
+\item Contributed data-assimilation and forecasting models to \textbf{NASA-collaborative neural-operator benchmarks} for geophysical simulations.
+\item Developed \textbf{Graph-DeepONet} operators learning Shallow Water PDE dynamics at \textbf{maximum frequency mode 100 spectral fidelity}.
+\item Engineered \textbf{HEALPix-GCN (196K-node) \& SIREN architectures}, mitigating spectral bias \& capturing high-frequency dynamics.
+\item Achieved stable \textbf{50-step autoregressive forecasting} and sparse-observation data assimilation, \textbf{achieving test MSE of }$\mathbf{4.5\times10^{-6}}$
+\resumeItemListEnd
+
+\vspace{-3pt}
+
+\resumeProject
+{Research Intern @ Indian Institute of Management, Ranchi, Prof. Sobhan Sarkar}
+{Remote}{April 2025 -- Aug 2025}
+\resumeItemListStart
+\vspace{1pt}
+\item Built multimodal BERT-ViT-CLIP framework \textbf{processing 54K+ movie reviews} and \textbf{30K+ movie frames}, achieving \textbf{87.5\% accuracy.}
+
+\item Developed \textbf{CLIP-based semantic alignmen}t across 10+ movie datasets, improving review-to-scene contextual grounding significantly.
+
+\item Designed \textbf{uncertainty-aware evidential fusion}, outperforming attention baselines and \textbf{achieving 98.2\% NDCG} across the datasets.
+
+\item Computed \textbf{162M+ cross-modal similarity scores using CLIP}, advancing semantic alignment, representation learning and retrieval.
+\resumeItemListEnd
+
+\vspace{-3pt}
+
+\resumeProject
+{Research Intern @ University of Oulu, Finland, Prof. Shuai Lee}
+{Remote}{May 2025 -- Jun 2025}
+\resumeItemListStart
+\vspace{1pt}
+\item Built \textbf{PyTorch criticality-aware pruning}, bypassing convex-solver traps to \textbf{retain 95.6\% MNIST accuracy at 90\% sparsity.}
+\item Engineered dual-masking schedules to fix \textbf{Adam ``zombie-weights''}, guaranteeing strict SNN sparsity\textbf{ across FMNIST \& MNIST.}
+\item Quantified temporal redundancy via KL-divergence to truncate timesteps, \textbf{achieving 73\% compound neuromorphic energy reduction.}
+\resumeItemListEnd
+
+\resumeSubHeadingListEnd
+
+\vspace{-18pt}
+
+%-----------PUBLICATIONS-----------
+\section{Patents and Publications}
+\vspace{5pt}
+\begin{tabularx}{\textwidth}{@{} X @{}}
+\textbf{Muhammad Hamza et al. (2025). Movie Review Helpfulness Prediction using Semantic Alignment \& Evidential Fusion-based Multimodal Approach.} \textit{iSAI-NLP 2025; ICEEE--IEEE Conference 2026} \\
+\end{tabularx}
+
+\vspace{-2mm}
+
+%-----------PROJECTS-----------
+\section{\textbf{Projects}}
+\resumeSubHeadingListStart
+\vspace{3pt}
+\resumeProject
+{ApexSearch: F1 Audio-Visual RAG \& Multimodal Retrieval Engine}
+{PyTorch, FAISS, CLIP, CLAP}
+{2026}
+\resumeItemListStart
+\item Built a FAISS-based multimodal retrieval system \textbf{indexing 2000+ video and audio segments}, achieving \textbf{sub-50ms query latency.}
+
+\item Integrated \textbf{Groq-hosted LLaVA} for multimodal F1 commentary generation, enabling GPU-free inference and Streamlit deployment.
+\resumeItemListEnd
+
+\vspace{-2mm}
+
+\resumeProject
+{VictorianGPT: Compound RAG Architecture}
+{PyTorch, QLoRA, ChromaDB, HuggingFace}
+{2025}
+\resumeItemListStart
+\item Built a \textbf{20K+} instruction-tuning dataset from \textbf{Victorian literature} (four+ novels) and \textbf{fine-tuned a 3B parameter LLM using QLoRA.}
+
+\item Developed a \textbf{ChromaDB-based RAG pipeline}, optimizing retrieval weighting for improved context relevance and response quality.
+
+\resumeItemListEnd
+
+\vspace{-2mm}
+
+\resumeProject
+{Visuo-Lingual Affective Recommender System (VLARS)}
+{PyTorch, FAISS, DeepFace}
+{2025}
+\resumeItemListStart
+\item Built a multimodal encoder combining DeepFace \& DistilRoBERTa embeddings, improving \textbf{Recall@5 by 23\%} over text-only baselines.
+\item Implemented semantic movie search using MiniLM embeddings and FAISS \textbf{across 5,000 titles}, achieving \textbf{180ms CPU inference latency.}
+\resumeItemListEnd
+
+\resumeSubHeadingListEnd
+
+\vspace{-18pt}
+
+%-----------COMPETITIONS-----------
+\section{\textbf{Competitions}}
+\resumeSubHeadingListStart
+\vspace{2pt}
+\resumePROJECT
+{Optiver Trade-athon 2026}
+{Mar 2026}
+\resumeItemListStart
+\vspace{0.3pt}
+\item Secured \textbf{Rank 23} in \textbf{Optiver's Trade-a-thon}, a quantitative trading challenge involving real-time market-making and pricing strategies.
+\resumeItemListEnd
+
+\resumePROJECT
+{Convolve 4.0: Pan-IIT AI/ML Hackathon --- Quadeye Securities / IIT Madras}
+{Feb 2026}
+\resumeItemListStart
+\vspace{0.3pt}
+\item Secured \textbf{All India Rank 102} in the highly competitive ML/AI screening assessment \textbf{among 3,000+ students.}
+\resumeItemListEnd
+
+\resumePROJECT
+{NK Securities Research Hackathon 2025}
+{Jun 2025}
+\resumeItemListStart
+\vspace{0.3pt}
+\item Secured \textbf{Rank 198/6000+}, achieving \textbf{MSE }$\mathbf{9.8 \times 10^{-5}}$ in implied volatility prediction using \textbf{178K+ records} \& \textbf{90+ engineered features.}
+\resumeItemListEnd
+
+\resumeSubHeadingListEnd
+
+\vspace{-18pt}
+
+\section{\textbf{Scholastic Achievements}}
+\resumeSubHeadingListStart
+\vspace{2pt}
+\resumePOR{}
+    { Ranked in the \textbf{top 0.26\%} of 1.2M+ candidates in the \textbf{Joint Entrance Examination (JEE) Main}}
+    {2023}
+\resumePOR{}
+    { Ranked in the \textbf{top 3\%} among 200K+ candidates in the \textbf{Joint Entrance Examination (JEE) Advanced}}
+    {2023}
+\resumeSubHeadingListEnd
+\vspace{-4mm}
+
+%-----------SKILLS-----------
+\section{\textbf{Skills and Expertise}}
+\vspace{2.5pt}
+
+\begin{itemize}[leftmargin=0.05in, label={}]
+\item \textbf{Languages \& Frameworks:} Python, C++, C, SQL, PyTorch, TensorFlow, NumPy, Pandas, Scikit-learn, SciPy \\
+\vspace{1pt}
+\textbf{ML / AI:} Neural Operators (FNO, DeepONet), Transformers (ViT, BERT, CLIP), SNNs \\
+\vspace{1pt}
+\textbf{Developer Tools:} Git, \LaTeX, Visual Studio Code, Jupyter Notebooks, Google Colaboratory, Anaconda
+\end{itemize}
+
+\vspace{-5mm}
+
+\section{\textbf{Coursework Information}}
+\vspace{2pt}
+\begin{itemize}[leftmargin=0.05in, label={}]
+\item \textbf{Mathematics and Computer Science:} Artificial Intelligence, Programming and Data Structures (Theory and Laboratory), Linear Algebra, Advanced Calculus, Transform Calculus, Numerical and Complex Analysis, Computer-Aided Process Engineering, Computer Graphics
+\vspace{-5pt}
+\item \textbf{MOOCs:} Supervised Machine Learning, Neural Networks and Deep Learning, Improving Deep Neural Networks, Structuring Machine Learning Projects, Convolutional Neural Networks, Large Language Models, Natural Language Processing
+\end{itemize}
+
+\vspace{-5mm}
+
+\end{document}
